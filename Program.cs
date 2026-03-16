@@ -12,6 +12,11 @@ namespace poligon_39
         {
             //Pavle Mackovic
 
+            Tacka A = new Tacka(1, 2);
+            Tacka B = new Tacka(2, 3);
+            Vektor AB = new Vektor(A, B);
+            Tacka C = AB.Centriraj();
+            Console.WriteLine(C.d());
         }
     }
 }
