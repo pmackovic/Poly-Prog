@@ -31,11 +31,13 @@ namespace poligon_39
             }
             return novi;
         }
-        public void stampa()
+        public static void stampa(Poligon p)
         {
-            StreamReader ulaz = new StreamReader("poligon.txt");
-            string s = ulaz.ReadToEnd();
-            Console.WriteLine(s);
+            for (int i = 0; i < p.br_temena; i++)
+            {
+                Console.WriteLine($"a[{i + 1}].x = {p.teme[i].x}");
+                Console.WriteLine($"a[{i + 1}].y = {p.teme[i].y}");
+            }
         }
         public void snimi()
         {
@@ -50,7 +52,19 @@ namespace poligon_39
         }
         public static Poligon ucitaj()
         {
-            return null;
+            using (StreamReader ulaz = new StreamReader("poligon.txt"))
+            {
+                int n = Convert.ToInt32(ulaz.ReadLine());
+                Poligon p = new Poligon(n);
+
+                for (int i = 0; i < n; i++)
+                {
+                    p.teme[i] = new Tacka();
+                    p.teme[i].x = Convert.ToInt32(ulaz.ReadLine());
+                    p.teme[i].y = Convert.ToInt32(ulaz.ReadLine());
+                }
+                return p;
+            }
         }
     }
 }

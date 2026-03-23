@@ -11,6 +11,7 @@ namespace poligon_39
         static void Main(string[] args)
         {
             // Pavle Mackovic
+
             // Tacka prva = new Tacka();
             // Console.WriteLine(prva.d());
             /* Tacka A = new Tacka(1,2);
@@ -35,8 +36,11 @@ namespace poligon_39
             Vektor a = new Vektor(prva, druga);
             Console.WriteLine(Ravan.SIS(a, A, B));
             */
-            Poligon prvi = Poligon.unos();
-            prvi.snimi();
+
+            Poligon p = Poligon.ucitaj();
+            Poligon.stampa(p);
+
+            Console.ReadKey();
         }
     }
 }
