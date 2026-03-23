@@ -10,13 +10,33 @@ namespace poligon_39
     {
         static void Main(string[] args)
         {
-            //Pavle Mackovic
-
-            Tacka A = new Tacka(1, 2);
-            Tacka B = new Tacka(2, 3);
-            Vektor AB = new Vektor(A, B);
+            // Pavle Mackovic
+            // Tacka prva = new Tacka();
+            // Console.WriteLine(prva.d());
+            /* Tacka A = new Tacka(1,2);
+            Tacka B = new Tacka(2,3);
+            Vektor AB = new Vektor(A,B);
             Tacka C = AB.Centriraj();
             Console.WriteLine(C.d());
+            */
+            /*
+            Tacka A = new Tacka(3, 2);
+            Tacka B = new Tacka(-2, 3);
+            Tacka O = new Tacka();
+            Vektor OA = new Vektor(O, A);
+            Vektor OB = new Vektor(O, B);
+            Console.WriteLine(Vektor.SP(OA, OB));
+            Console.WriteLine(Vektor.VP(OB, OA));
+            */
+            /* Tacka A = new Tacka(5, 3);
+            Tacka B = new Tacka(5, 5);
+            Tacka prva = new Tacka(3, 2);
+            Tacka druga = new Tacka(7, 6);
+            Vektor a = new Vektor(prva, druga);
+            Console.WriteLine(Ravan.SIS(a, A, B));
+            */
+            Poligon prvi = Poligon.unos();
+            prvi.snimi();
         }
     }
 }

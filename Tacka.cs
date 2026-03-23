@@ -8,16 +8,15 @@ namespace poligon_39
 {
     internal class Tacka
     {
-        public float x, y;
+        public double x, y;
         public Tacka()
         {
-            x = 0;
-            y = 0;
+            x = 0; y = 0;
         }
-        public Tacka(float x, float y)
+        public Tacka(double a, double b)
         {
-            this.x = x;
-            this.y = y;
+            x = a;
+            y = b;
         }
         public double d()
         {
