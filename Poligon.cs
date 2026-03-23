@@ -33,7 +33,9 @@ namespace poligon_39
         }
         public void stampa()
         {
-
+            StreamReader ulaz = new StreamReader("poligon.txt");
+            string s = ulaz.ReadToEnd();
+            Console.WriteLine(s);
         }
         public void snimi()
         {
