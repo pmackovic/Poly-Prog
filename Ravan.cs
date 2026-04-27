@@ -1,11 +1,4 @@
-﻿using poligon_39;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace poligon_39
+﻿namespace poligon_39
 {
     internal class Ravan
     {
