@@ -33,9 +33,16 @@ namespace poligon_39
             Console.WriteLine(Ravan.SIS(a, A, B));
             */
 
-            Poligon p = Poligon.ucitaj();
+            /*Poligon p = Poligon.ucitaj();
             Poligon.stampa(p);
 
+            Console.ReadKey();*/
+
+            Poligon poly = Poligon.unos();
+            Console.WriteLine(" ");
+            Console.WriteLine("{0} deltoid.", poly.ifDeltoid()? "Jeste" : "Nije");
+            Console.WriteLine("{0} pravougaonik.", poly.ifPravougaonik()? "Jeste" : "Nije");
+            Console.WriteLine("{0} pravougli trapez.", poly.ifPravougliTrapez()? "Jeste" : "Nije");
             Console.ReadKey();
         }
     }

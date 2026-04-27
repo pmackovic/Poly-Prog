@@ -15,15 +15,15 @@ namespace poligon_39
         }
         public static Poligon unos()
         {
-            Console.WriteLine("Koliko temena?");
+            Console.Write("Koliko temena? ");
             int n = Convert.ToInt32(Console.ReadLine());
             Poligon novi = new Poligon(n);
             for (int i = 0; i < n; i++)
             {
                 novi.teme[i] = new Tacka();
-                Console.WriteLine("T[{0}].x =", i + 1);
+                Console.Write("x koordinata {0}. temena = ", i + 1);
                 novi.teme[i].x = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("y koord tacke T({0})=", i + 1);
+                Console.Write("y koordinata {0}. temena = ", i + 1);
                 novi.teme[i].y = Convert.ToInt32(Console.ReadLine());
             }
             return novi;
@@ -101,7 +101,7 @@ namespace poligon_39
                 else kraj = br_temena;
                 for (int j = i + 2; j < kraj; j++)
                 {
-                    if (Vektor.sekuSe(stranica[i], stranica[j]))
+                    if (Vektor.SekuSe(stranica[i], stranica[j]))
                     {
                         return false;
                     }
@@ -129,7 +129,7 @@ namespace poligon_39
             }
             return (brojPreseka % 2) != 0;
         }
-        public bool proveriDeltoid()
+        public bool ifDeltoid()
         {
             if (br_temena != 4) return false;
 
@@ -145,9 +145,13 @@ namespace poligon_39
                 duzine[i] = stranice[i].duzina();
             }
 
-            return (duzine[0] == duzine[2] && duzine[1] == duzine[3]);
+            bool check = false;
+            if (duzine[0] == duzine[3] && duzine[1] == duzine[2]) check = true;
+            if (duzine[0] == duzine[1] && duzine[2] == duzine[3]) check = true;
+
+            return check;
         }
-        public bool proveriPravougaonik()
+        public bool ifPravougaonik()
         {
             if (br_temena != 4) return false;
 
@@ -157,13 +161,24 @@ namespace poligon_39
             stranice[2] = new Vektor(teme[2], teme[3]);
             stranice[3] = new Vektor(teme[3], teme[0]);
 
+            double[] duzine = new double[4];
+            for (int i = 0; i < 4; i++)
+            {
+                duzine[i] = stranice[i].duzina();
+            }
+
+            bool check = false;
+            if (duzine[0] == duzine[3] && duzine[1] == duzine[2]) check = true;
+            if (duzine[0] == duzine[1] && duzine[2] == duzine[3]) check = true;
+
             if (Vektor.SP(stranice[0], stranice[1]) == 0 &&
                 Vektor.SP(stranice[1], stranice[2]) == 0 &&
-                Vektor.SP(stranice[2], stranice[3]) == 0)
+                Vektor.SP(stranice[2], stranice[3]) == 0 &&
+                check == true)
                 return true;
             else return false;
         }
-        public bool proveriPravougliTrapez()
+        public bool ifPravougliTrapez()
         {
             if (br_temena != 4) return false;
 
@@ -174,12 +189,21 @@ namespace poligon_39
             stranice[3] = new Vektor(teme[3], teme[0]);
 
             int brojac = 0;
+            bool imaSusedne = false;
 
-            for (int i = 0; i < 3; i++)
-                if (Vektor.SP(stranice[i], stranice[i + 1]) == 0) brojac++;
+            for (int i = 0; i < 4; i++)
+            {
+                if (Vektor.SP(stranice[i], stranice[(i + 1) % 4]) == 0)
+                {
+                    brojac++;
+                    if (Vektor.SP(stranice[(i + 1) % 4], stranice[(i + 2) % 4]) == 0)
+                    {
+                        imaSusedne = true;
+                    }
+                }
+            }
 
-            if (brojac == 2) return true;
-            else return false;
+            return brojac == 2 && imaSusedne;
         }
     }
 }
